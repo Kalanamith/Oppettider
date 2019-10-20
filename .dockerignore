@@ -1,0 +1,11 @@
+**/.*.pyc
+**/__pycache__
+**/.*.exe
+.eggs/
+.idea
+.gitignore
+.git
+Docker/
+*.egg-info
+
+MANIFEST.in
