@@ -9,6 +9,11 @@ class BaseSchema:
 
     @classmethod
     def get_schema(cls, schema_name: str):
+        """
+        Returns the schema function
+        :param schema_name:
+        :return: Schema function
+        """
         return getattr(cls, schema_name)
 
 

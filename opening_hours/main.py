@@ -1,0 +1,22 @@
+from aiohttp import web
+from aiohttp.abc import Application
+
+from opening_hours.contrib.url_helpers import add_routes, add_cors
+
+
+def create_app() -> Application:
+    """
+    Constructs the aiohttp application
+    :return:
+    """
+    app = web.Application()
+
+    # TODO: Restrict Headers -> Current configuration exposed all headers!!!!!
+
+    # Add routes
+    add_routes(app)
+
+    # Add cors
+    add_cors(app)
+
+    return app

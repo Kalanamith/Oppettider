@@ -1,6 +1,8 @@
+__doc__ = """ Declaration of base handlers and sub handlers """
+
+from opening_hours.contrib.Errors import Errors
 from opening_hours.handlers.util.arg_utils import prepare_data
 
-__doc__ = """ Declaration of base handlers and sub handlers """
 
 from typing import Any, Dict, List, Union
 
@@ -8,7 +10,9 @@ from aiohttp import web
 
 
 class Handler:
-
+    """
+    Base Generic Handler with common status codes.
+    """
     SUCCESS_CODE: int = 200
     ERROR_CODE: int = 400
 
@@ -24,7 +28,6 @@ class Handler:
     async def delete(self, request):
         pass
 
-    @staticmethod
     async def json_response(
             self,
             results: Dict[
@@ -39,6 +42,21 @@ class Handler:
         :return:
         """
         return web.json_response(data=results, status=status)
+
+
+class Ping(Handler):
+    """
+    Keep alive check handler
+    """
+    async def get(self, request) -> Dict[str: str]:
+        """
+        End point to return pong for client for a ping
+        :param request:
+        :return: Dict[str: str]:
+        """
+        return await self.json_response(
+            results={"ping": "pong"}, status=self.SUCCESS_CODE
+        )
 
 
 class OpeningHours(Handler):
