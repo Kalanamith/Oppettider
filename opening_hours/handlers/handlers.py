@@ -1,3 +1,5 @@
+from opening_hours.handlers.util.arg_utils import prepare_data
+
 __doc__ = """ Declaration of base handlers and sub handlers """
 
 from typing import Any, Dict, List, Union
@@ -46,14 +48,18 @@ class OpeningHours(Handler):
     Returns json array in readable format
     """
 
-    async def put(self, request):
+    async def put(self, request_args):
         pass
 
-    async def delete(self, request):
+    async def delete(self, request_args):
         pass
 
-    async def get(self, request):
+    async def get(self, request_args):
         pass
 
-    async def post(self, request):
-        pass
+    async def post(self, request_args):
+        results = await OpenDays().save_data(**prepare_data(request_args))
+
+        return await self.json_response(
+            results=results, status=self.ERROR_CODE if Errors.SAVE_ERROR.name in results else self.SUCCESS_CODE
+        )

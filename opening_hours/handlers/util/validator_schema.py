@@ -2,6 +2,9 @@ from typing import Dict, Union
 
 
 class BaseSchema:
+    """
+    Base schema for validation schema.
+    """
     __slots__ = ()
 
     @classmethod
@@ -10,6 +13,9 @@ class BaseSchema:
 
 
 class ValidationSchema(BaseSchema):
+    """
+    Stores validators to validate request args in POST, PUT, GET, DELETE requests
+    """
     @classmethod
     def cashier_put_schema(cls) -> Dict[str, Dict[str, Union[str, bool]]]:
         """
