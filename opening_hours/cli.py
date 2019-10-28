@@ -3,7 +3,7 @@ import click
 from opening_hours.run import run
 
 
-@click.group("back_office")
+@click.group("avata")
 def opening_hours_main():
     """
     Command group declaration.

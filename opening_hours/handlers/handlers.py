@@ -48,7 +48,7 @@ class Ping(Handler):
     """
     Keep alive check handler
     """
-    async def get(self, request) -> Dict[str: str]:
+    async def get(self, request):
         """
         End point to return pong for client for a ping
         :param request:
@@ -72,12 +72,17 @@ class OpeningHours(Handler):
     async def delete(self, request_args):
         pass
 
-    async def get(self, request_args):
-        pass
-
-    async def post(self, request_args):
-        results = await OpenDays().save_data(**prepare_data(request_args))
-
+    async def get(self, request):
         return await self.json_response(
-            results=results, status=self.ERROR_CODE if Errors.SAVE_ERROR.name in results else self.SUCCESS_CODE
+            results={"opening_hours": "pong"}, status=self.SUCCESS_CODE
         )
+
+    async def post(self, request):
+        return await self.json_response(
+            results={"opening_hours": "pong"}, status=self.SUCCESS_CODE
+        )
+        # results = await OpenDays().save_data(**prepare_data(request_args))
+        #
+        # return await self.json_response(
+        #     results=results, status=self.ERROR_CODE if Errors.SAVE_ERROR.name in results else self.SUCCESS_CODE
+        # )

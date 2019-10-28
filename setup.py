@@ -14,7 +14,7 @@ with open("requirements/dev.txt") as f:
 
 
 setuptools.setup(
-    name="opening_hours",
+    name="avata",
     description="Restaurant opening hours in human readable format",
     long_description=long_description,
     version="0.0.1",
@@ -22,7 +22,7 @@ setuptools.setup(
     extras_require={"test": test_requirements, "dev": dev_requirements},
     packages=setuptools.find_packages(),
     author="Kalanamith Mannapperuma",
-    entry_points={"console_scripts": ["opening=opening_hours.cli:opening_hours_main"]},
+    entry_points={"console_scripts": ["avata=opening_hours.cli:opening_hours_main"]},
     setup_requires=["pytest-runner"],
     test_suit="tests",
 )

@@ -11,8 +11,6 @@ def create_app() -> Application:
     """
     app = web.Application()
 
-    # TODO: Restrict Headers -> Current configuration exposed all headers!!!!!
-
     # Add routes
     add_routes(app)
 
