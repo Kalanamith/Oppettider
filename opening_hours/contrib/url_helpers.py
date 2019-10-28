@@ -1,6 +1,5 @@
 import aiohttp_cors
 from aiohttp import web
-from aiohttp.abc import Request
 from aiohttp.web_app import Application
 
 from opening_hours.config import API_VERSION_1
