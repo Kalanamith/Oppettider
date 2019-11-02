@@ -1,21 +1,17 @@
 __doc__ = """ Declaration of base handlers and sub handlers """
 
-from opening_hours.contrib.Errors import Errors
-from opening_hours.handlers.util.arg_utils import prepare_data
-
-
 from typing import Any, Dict, List, Union
 
 from aiohttp import web
+
+SUCCESS_CODE: int = 200
+ERROR_CODE: int = 400
 
 
 class Handler:
     """
     Base Generic Handler with common status codes.
     """
-    SUCCESS_CODE: int = 200
-    ERROR_CODE: int = 400
-
     async def get(self, request):
         pass
 
@@ -55,7 +51,7 @@ class Ping(Handler):
         :return: Dict[str: str]:
         """
         return await self.json_response(
-            results={"ping": "pong"}, status=self.SUCCESS_CODE
+            results={"ping": "pong"}, status=SUCCESS_CODE
         )
 
 
