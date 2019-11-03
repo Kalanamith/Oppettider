@@ -1,5 +1,5 @@
 def check_days(field, value, error):
-    if not type(value) is not list:
+    if type(value) is not list:
         error(field, "Must be a list.")
 
     if len(value) > 0:
@@ -23,5 +23,5 @@ def check_days(field, value, error):
             if type(item["value"]) is not int:
                 error("value must be an integer.")
 
-            if type(item["value"]) <= 0:
+            if item["value"] <= 0:
                 error("value must be greater than 0.")
