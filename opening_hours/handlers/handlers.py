@@ -1,3 +1,5 @@
+import time
+
 from opening_hours.handlers.util.decorators import view_validator
 
 __doc__ = """ Declaration of base handlers and sub handlers """
@@ -79,11 +81,19 @@ class OpeningHours(Handler):
     async def post(self, request_args):
 
         data = request_args
-
+        res = dict()
         for key in data:
-            p = data[key]
+            data_list = data[key]
+            for elem in data_list:
+                status = elem["type"]
+                unix_time = elem["value"]
+
+                p = time.strftime('%H:%M:%S', time.localtime(unix_time))
+                res[key] = p
+
+
 
         return await self.json_response(
-            results={"opening_hours": "pong"}, status=SUCCESS_CODE
+            results=res, status=SUCCESS_CODE
         )
 
