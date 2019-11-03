@@ -20,7 +20,7 @@ def add_routes(app: Application) -> None:
         [
             # GET handlers
             web.get(f"/{APP_VERSION}/", ping.get),
-            web.get(f"/{API_VERSION_1}/opening_hours", opening_hours.get),
+            web.get(f"/{APP_VERSION}/opening_hours", opening_hours.get),
             # POST Handlers
             web.post(f"/{APP_VERSION}/opening_hours", opening_hours.post),
         ]

@@ -68,14 +68,15 @@ class OpeningHours(Handler):
     async def delete(self, request_args):
         pass
 
+
     async def get(self, request):
         return await self.json_response(
-            results={"opening_hours": "pong"}, status=self.SUCCESS_CODE
+            results={"opening_hours": "pong"}, status=SUCCESS_CODE
         )
 
     async def post(self, request):
         return await self.json_response(
-            results={"opening_hours": "pong"}, status=self.SUCCESS_CODE
+            results={"opening_hours": "pong"}, status=SUCCESS_CODE
         )
         # results = await OpenDays().save_data(**prepare_data(request_args))
         #
