@@ -8,6 +8,9 @@ from opening_hours.helpers.url_helpers import add_routes, add_cors
 def oh_client(loop, aiohttp_client):
     """
     Creates a test app for the project
+    :param loop: instance of event loop
+    :param aiohttp_client: aiohttp test client
+    :return:
     """
     app = web.Application()
 
