@@ -84,14 +84,14 @@ class OpeningHours(Handler):
         res = dict()
         for key in data:
             data_list = data[key]
+            if not data_list:
+                res[key] = "Closed"
             for elem in data_list:
                 status = elem["type"]
                 unix_time = elem["value"]
 
-                p = time.strftime('%H:%M:%S', time.localtime(unix_time))
+                p = time.strftime('%H:%M:%S:%p', time.localtime(unix_time))
                 res[key] = p
-
-
 
         return await self.json_response(
             results=res, status=SUCCESS_CODE

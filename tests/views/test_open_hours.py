@@ -32,7 +32,8 @@ async def test_post_open_hours(oh_client):
                 "type": "close",
                 "value": 82800
             }
-        ]
+        ],
+        "sunday": []
     }
     url: str = "oh/v1/opening_hours"
 
